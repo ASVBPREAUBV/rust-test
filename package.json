@@ -6,7 +6,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start":"npm run serve",
+    "dev": "npm start",
+    "start": "npm run serve",
     "build": "webpack",
     "serve": "webpack-dev-server"
   },
