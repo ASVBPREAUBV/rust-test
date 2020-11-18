@@ -4,6 +4,24 @@ use std::rc::Rc;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 
+
+#[wasm_bindgen]
+extern "C" {
+    fn alert(s: &str);
+}
+
+#[wasm_bindgen]
+pub fn greet(name: &str) {
+    alert(&format!("Hello, {}!", name));
+}
+
+//pub fn loadImage() -> {
+    /*l
+    et img_bytes = reqwest::blocking::get("...")?
+    .bytes()?;
+    let image = image::load_from_memory(&img_bytes)?;
+    */   
+
 #[wasm_bindgen(start)]
 pub fn start() -> Result<(), JsValue> {
     let document = web_sys::window().unwrap().document().unwrap();
