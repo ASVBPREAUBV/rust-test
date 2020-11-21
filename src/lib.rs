@@ -5,6 +5,7 @@ use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 
 
+
 #[wasm_bindgen]
 extern "C" {
     fn alert(s: &str);
@@ -13,6 +14,13 @@ extern "C" {
 #[wasm_bindgen]
 pub fn greet(name: &str) {
     alert(&format!("Hello, {}!", name));
+}
+
+#[wasm_bindgen]
+pub fn load(name: &str) {
+    let img_bytes = reqwest::blocking::get("https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png")?
+    .bytes()?;
+    let image = image::load_from_memory(&img_bytes)?;
 }
 
 //pub fn loadImage() -> {
